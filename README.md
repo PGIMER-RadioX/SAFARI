@@ -40,16 +40,16 @@ This repository provides the code for pretraining a foundation model on radiomic
     cd SAFARI
     ```
 
-2.  **Create a conda virtual environment from ENV.yml:**
+2.  **Install a conda virtual environment from ENV.yml:**
     ```bash
-    conda env create -f ENV.yml
+    conda env create --name ENVNAME --file ENV.yml
     ```
 
 ## Usage
 
-### 1. Training the Foundation Model
+### 1. Pretraining the Foundation Model
 
-To train the foundation model, use the `train_foundation_model.py` script. You need to provide the path to your radiomics data (either a single CSV file or a directory of CSVs) and an output directory to save the model and artifacts.
+To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomics data (either a single CSV file or a directory of CSVs) and an output directory to save the model and artifacts.
 
 ```bash
 python scripts/train_foundation_model.py --data /path/to/your/data --output-dir /path/to/save/model
@@ -58,17 +58,4 @@ python scripts/train_foundation_model.py --data /path/to/your/data --output-dir 
 For a full list of training options, run:
 ```bash
 python scripts/train_foundation_model.py --help
-```
-
-### 2. Assessing the Trained Model
-
-Once a model is trained, you can assess its quality using the `assess_foundation_model.py` script. You need to provide the path to the trained model, the data used for assessment, and an output directory for the assessment reports.
-
-```bash
-python scripts/assess_foundation_model.py --model /path/to/save/model/best_model.pt --data /path/to/your/data.csv --output /path/to/assessment/results
-```
-
-You can also specify a label column for transfer learning evaluation and visualization:
-```bash
-python scripts/assess_foundation_model.py --model /path/to/save/model/best_model.pt --data /path/to/your/data.csv --output /path/to/assessment/results --label-col "your_label_column" --color-by "your_label_column"
 ```
