@@ -17,7 +17,6 @@ SAFARI/
 ├── README.md
 ├── ENV.yml
 ├── scripts/
-│   ├── assess_model.py
 │   └── train_model.py
 ├── setup.py
 └── src/
