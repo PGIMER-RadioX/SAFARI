@@ -1,10 +1,11 @@
 # SAFARI
 SAFARI: Self-supervised Tumor Agnostic Foundation for Advanced Radiomics Integration
 
-
+# Licence
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
 This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http.creativecommons.org/licenses/by-nc-sa/4.0/).
 
 
@@ -30,7 +31,7 @@ SAFARI/
 
 ## Overview
 
-This repository provides the code for pretraining a foundation model on radiomics data from pan-organ tumors using Self-Supervised Learning Techniques. It also includes a assessment script to evaluate the quality and performance of the pretrained model. The goal is to learn meaningful representations from large-scale radiomics datasets that can be transferred to various downstream tasks.
+This repository provides the code for pretraining a foundation model on radiomics data from pan-organ tumors using Self-Supervised Learning Techniques. The goal is to learn meaningful representations from large-scale radiomics datasets that can be transferred to various downstream tasks.
 
 ## Installation
 
