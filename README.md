@@ -33,13 +33,13 @@ This repository provides the code for pretraining a foundation model on radiomic
     git clone https://github.com/PGIMER-RadioX/SAFARI.git
     cd SAFARI
     ```
-  > If `git` is not installed, please follow [this guide](https://git-scm.com/install/).
+      > If `git` is not installed, please follow [this guide](https://git-scm.com/install/).
 
 2.  **Install a `conda` virtual environment from ENV.yml:**
     ```bash
     conda env create --f ENV.yml
     ```
-  > If `conda` is not installed, please follow [this guide](https://www.anaconda.com/docs/getting-started/miniconda/install/overview).
+      > If `conda` is not installed, please follow [this guide](https://www.anaconda.com/docs/getting-started/miniconda/install/overview).
 
 3. **Activate `conda` enviroment**
    ```bash
@@ -54,28 +54,29 @@ This repository provides the code for pretraining a foundation model on radiomic
 
 1. Radiomic Feature Extraction
 
-To extract Radiomic features, run `scripts/feature_extractor.py` script. Prepare a metadata csv which acts as input for the script and place it as `data/metadata.csv`. 
+    To extract Radiomic features, run `scripts/feature_extractor.py` script. Prepare a metadata csv which acts as input for the script and place it as `data/metadata.csv`. 
 
-**Metadata CSV Column Structure**:
-```csv
-patient_id,ct_scan_path,mask_path
-P001,/data/patient001/ct.nii,/data/patient001/mask.nii
-P002,/data/patient002/ct.nii,/data/patient002/mask.nii
-...
-```
-Configuration file for PyRadiomics feature extractor is already present `config/exampleCT.yaml`. This config is unmodified copy of the original config [commited](https://github.com/AIM-Harvard/pyradiomics/blob/master/examples/exampleSettings/exampleCT.yaml) in the PyRadiomics repo.
-
-Running this script will generate a `out/features.csv` file. This is a single output file where all extracted radiomic features are saved **incrementally**. 
+    **Metadata CSV Column Structure**:
+    ```csv
+    patient_id,ct_scan_path,mask_path
+    P001,/data/patient001/ct.nii,/data/patient001/mask.nii
+    P002,/data/patient002/ct.nii,/data/patient002/mask.nii
+    ...
+    ```
+    
+    Configuration file for PyRadiomics feature extractor is already present `config/exampleCT.yaml`. This config is unmodified copy of the original config [commited](https://github.com/AIM-Harvard/pyradiomics/blob/master/examples/exampleSettings/exampleCT.yaml) in the PyRadiomics repo.
+    
+    Running this script will generate a `out/features.csv` file. This is a single output file where all extracted radiomic features are saved **incrementally**. 
 
 2. Pretraining the Foundation Model
 
-To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomic feature data (either a single CSV file or a directory of CSVs) and an output directory to save the model checkpoint.
-
-```bash
-python scripts/train_foundation_model.py --data out/features.csv --output-dir out/model
-```
-
-For a full list of training options, run:
-```bash
-python scripts/train_foundation_model.py --help
-```
+    To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomic feature data (either a single CSV file or a directory of CSVs) and an output directory to save the model checkpoint.
+    
+    ```bash
+    python scripts/train_foundation_model.py --data out/features.csv --output-dir out/model
+    ```
+    
+    For a full list of training options, run:
+    ```bash
+    python scripts/train_foundation_model.py --help
+    ```
