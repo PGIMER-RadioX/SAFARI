@@ -1,5 +1,5 @@
 # SAFARI
-SAFARI: Self-supervised Tumor Agnostic Foundation for Advanced Radiomics Integration
+SAFARI: A Self-supervised Tumor-Agnostic Framework for Radiomics Representation Learning in Oncology Practice
 
 # Licence
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
