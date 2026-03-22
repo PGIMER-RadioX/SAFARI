@@ -40,11 +40,22 @@ This repository provides the code for pretraining a foundation model on radiomic
     git clone https://github.com/PGIMER-RadioX/SAFARI.git
     cd SAFARI
     ```
+  > If `git` is not installed, please follow [this guide](https://git-scm.com/install/).
 
-2.  **Install a conda virtual environment from ENV.yml:**
+2.  **Install a `conda` virtual environment from ENV.yml:**
     ```bash
-    conda env create --name ENVNAME --file ENV.yml
+    conda env create --f ENV.yml
     ```
+  > If `conda` is not installed, please follow [this guide](https://www.anaconda.com/docs/getting-started/miniconda/install/overview).
+
+3. **Activate `conda` enviroment**
+   ```bash
+   conda activate safari
+   ```
+4. **Intall `pytorch` with `CUDA` runtimes in `safari` env**
+   ```bash
+   conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+   ```
 
 ## Usage
 
