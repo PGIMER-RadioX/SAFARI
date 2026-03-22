@@ -13,20 +13,22 @@ This project is licensed under the [Creative Commons Attribution-NonCommercial-S
 ## Project Structure
 ```
 SAFARI/
-├── .gitignore
-├── LICENSE
-├── README.md
+├── config
+│   └── exampleCT.yaml
 ├── ENV.yml
-├── scripts/
-│   └── train_model.py
-├── setup.py
-└── src/
-    ├── foundation_model/
+├── out
+│   └── models
+│       └── best_model.pt
+├── README.md
+├── scripts
+│   ├── feature_extractor.py
+│   └── train_model.py
+└── src
+    └── foundation_model
+        ├── data_utils.py
         ├── __init__.py
         ├── model.py
-        ├── training.py
-        └── data_utils.py
-
+        └── training.py
 ```
 
 ## Overview
@@ -59,12 +61,27 @@ This repository provides the code for pretraining a foundation model on radiomic
 
 ## Usage
 
-### 1. Pretraining the Foundation Model
+### 1. Radiomic Feature Extraction
 
-To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomics data (either a single CSV file or a directory of CSVs) and an output directory to save the model and artifacts.
+To extract Radiomic features, run `scripts/feature_extractor.py` script. Prepare a metadata csv which acts as input for the script and place it as `data/metadata.csv`. 
+
+**Metadata CSV Column Structure**:
+```csv
+patient_id,ct_scan_path,mask_path
+P001,/data/patient001/ct.nii,/data/patient001/mask.nii
+P002,/data/patient002/ct.nii,/data/patient002/mask.nii
+...
+```
+Configuration file for PyRadiomics feature extractor is already present `config/exampleCT.yaml`. This config is unmodified copy of the original config [commited](https://github.com/AIM-Harvard/pyradiomics/blob/master/examples/exampleSettings/exampleCT.yaml) in the PyRadiomics repo.
+
+Running this script will generate a `out/features.csv` file. This is a single output file where all extracted radiomic features are saved **incrementally**. 
+
+### 2. Pretraining the Foundation Model
+
+To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomic feature data (either a single CSV file or a directory of CSVs) and an output directory to save the model checkpoint.
 
 ```bash
-python scripts/train_foundation_model.py --data /path/to/your/data --output-dir /path/to/save/model
+python scripts/train_foundation_model.py --data out/features.csv --output-dir out/model
 ```
 
 For a full list of training options, run:
