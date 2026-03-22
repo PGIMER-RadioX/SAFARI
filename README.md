@@ -22,10 +22,10 @@ SAFARI/
 ├── setup.py
 └── src/
     ├── foundation_model/
-    │   ├── __init__.py
-    │   ├── model.py
-    │   ├── training.py
-    │   └── data_utils.py
+        ├── __init__.py
+        ├── model.py
+        ├── training.py
+        └── data_utils.py
 
 ```
 
