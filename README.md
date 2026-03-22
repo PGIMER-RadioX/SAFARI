@@ -1,14 +1,6 @@
-# SAFARI
-SAFARI: A Self-supervised Tumor-Agnostic Framework for Radiomics Representation Learning in Oncology Practice
+# SAFARI: A Self-supervised Tumor-Agnostic Framework for Radiomics Representation Learning in Oncology Practice
 
-# Licence
-[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-
-This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http.creativecommons.org/licenses/by-nc-sa/4.0/).
-
-
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/) ![Status](https://img.shields.io/badge/Paper%20Status-Under--Review-purple)
 
 ## Project Structure
 ```
@@ -30,7 +22,6 @@ SAFARI/
         ├── model.py
         └── training.py
 ```
-
 ## Overview
 
 This repository provides the code for pretraining a foundation model on radiomics data from pan-organ tumors using Self-Supervised Learning Techniques. The goal is to learn meaningful representations from large-scale radiomics datasets that can be transferred to various downstream tasks.
@@ -61,7 +52,7 @@ This repository provides the code for pretraining a foundation model on radiomic
 
 ## Usage
 
-### 1. Radiomic Feature Extraction
+1. Radiomic Feature Extraction
 
 To extract Radiomic features, run `scripts/feature_extractor.py` script. Prepare a metadata csv which acts as input for the script and place it as `data/metadata.csv`. 
 
@@ -76,7 +67,7 @@ Configuration file for PyRadiomics feature extractor is already present `config/
 
 Running this script will generate a `out/features.csv` file. This is a single output file where all extracted radiomic features are saved **incrementally**. 
 
-### 2. Pretraining the Foundation Model
+2. Pretraining the Foundation Model
 
 To pretrain the foundation model, use the `scripts/train_model.py` script. You need to provide the path to your radiomic feature data (either a single CSV file or a directory of CSVs) and an output directory to save the model checkpoint.
 
